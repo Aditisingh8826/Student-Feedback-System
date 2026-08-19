@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback System</title>
+    <!-- Linking external CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation Bar -->
+    <header class="main-header">
+        <div class="logo-container">
+            <h1>Student Feedback System</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#login" class="nav-link">Login</a></li>
+                <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="#feedback-form" class="nav-link">Give Feedback</a></li>
+                <li><a href="#admin-view" class="nav-link">Faculty View</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- 1. LOGIN SECTION -->
+        <section id="login" class="card">
+            <h2>Student Login</h2>
+            <p class="subtitle">Please enter your academic credentials to access the portal.</p>
+            
+            <form action="#dashboard" class="form-grid">
+                <div class="form-group">
+                    <label for="student-id">Student ID</label>
+                    <input type="text" id="student-id" name="student-id" placeholder="e.g., STU12345" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <a href="#login" class="forgot-link">Forgot Password?</a>
+                </div>
+            </form>
+        </section>
+
+        <!-- 2. STUDENT DASHBOARD SECTION -->
+        <section id="dashboard" class="card">
+            <div class="dashboard-header">
+                <h2>Student Dashboard</h2>
+                <a href="#login" class="btn btn-secondary btn-small">Logout</a>
+            </div>
+
+            <!-- Profile Info Banner -->
+            <div class="profile-card">
+                <div class="profile-item">
+                    <span class="profile-label">Student Name:</span>
+                    <span class="profile-value">Aditi Singh</span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">Student ID:</span>
+                    <span class="profile-value">STU12345</span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">Course:</span>
+                    <span class="profile-value">B.Tech Computer Science</span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">Semester:</span>
+                    <span class="profile-value">Semester 4</span>
+                </div>
+            </div>
+
+            <h3>Enrolled Subjects & Feedback Status</h3>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Subject Name</th>
+                            <th>Assigned Faculty</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data Structures & Algorithms</td>
+                            <td>Dr. Rajesh Sharma</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td><a href="#feedback-form" class="btn btn-primary btn-small">Give Feedback</a></td>
+                        </tr>
+                        <tr>
+                            <td>Database Management Systems</td>
+                            <td>Prof. Priya Verma</td>
+                            <td><span class="badge badge-completed">Submitted</span></td>
+                            <td><a href="#confirmation" class="btn btn-secondary btn-small">View Submitted</a></td>
+                        </tr>
+                        <tr>
+                            <td>Web Development Fundamentals</td>
+                            <td>Dr. Amit Patel</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td><a href="#feedback-form" class="btn btn-primary btn-small">Give Feedback</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 3. FEEDBACK FORM SECTION -->
+        <section id="feedback-form" class="card">
+            <h2>Course Feedback Form</h2>
+            <p class="subtitle">Your response is confidential and helps us improve academic quality.</p>
+
+            <form action="#confirmation" class="form-grid">
+                
+                <div class="form-group">
+                    <label for="subject-select">Select Subject</label>
+                    <select id="subject-select" name="subject" required>
+                        <option value="">-- Choose a Subject --</option>
+                        <option value="dsa">Data Structures & Algorithms</option>
+                        <option value="dbms">Database Management Systems</option>
+                        <option value="webdev">Web Development Fundamentals</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="teacher-select">Select Faculty Member</label>
+                    <select id="teacher-select" name="teacher" required>
+                        <option value="">-- Choose a Teacher --</option>
+                        <option value="sharma">Dr. Rajesh Sharma</option>
+                        <option value="verma">Prof. Priya Verma</option>
+                        <option value="patel">Dr. Amit Patel</option>
+                    </select>
+                </div>
+
+                <div class="ratings-container">
+                    <div class="form-group">
+                        <label for="teaching-quality">Teaching Quality (1 - Poor, 5 - Excellent)</label>
+                        <select id="teaching-quality" name="teaching-quality" required>
+                            <option value="">Select Rating</option>
+                            <option value="1">1 - Poor</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="3">3 - Good</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course-content">Course Content & Material (1–5)</label>
+                        <select id="course-content" name="course-content" required>
+                            <option value="">Select Rating</option>
+                            <option value="1">1 - Poor</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="3">3 - Good</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="communication">Faculty Communication (1–5)</label>
+                        <select id="communication" name="communication" required>
+                            <option value="">Select Rating</option>
+                            <option value="1">1 - Poor</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="3">3 - Good</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="overall-rating">Overall Rating (1–5)</label>
+                        <select id="overall-rating" name="overall-rating" required>
+                            <option value="">Select Rating</option>
+                            <option value="1">1 - Poor</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="3">3 - Good</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="comments">Additional Comments & Suggestions</label>
+                    <textarea id="comments" name="comments" rows="5" placeholder="Share your constructive feedback here..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                    <button type="reset" class="btn btn-secondary">Reset Form</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- 4. FEEDBACK CONFIRMATION SECTION -->
+        <section id="confirmation" class="card confirmation-box">
+            <div class="alert-success">
+                <span class="icon">&#10004;</span>
+                <h2>Feedback Submitted Successfully!</h2>
+                <p>Thank you for contributing to the academic evaluation process.</p>
+                <div class="reference-number">
+                    <span>Reference Number:</span> <strong>#FB-2026-98421</strong>
+                </div>
+                <a href="#dashboard" class="btn btn-primary">Back to Dashboard</a>
+            </div>
+        </section>
+
+        <!-- 5. FACULTY/ADMIN FEEDBACK VIEW SECTION -->
+        <section id="admin-view" class="card">
+            <h2>Faculty & Admin Analytics Dashboard</h2>
+            <p class="subtitle">Aggregated feedback overview and response trends.</p>
+
+            <!-- Stat Summary Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Responses</h3>
+                    <p class="stat-value">1,248</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Average Rating</h3>
+                    <p class="stat-value">4.6 / 5.0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Courses</h3>
+                    <p class="stat-value">18</p>
+                </div>
+            </div>
+
+            <h3>Subject & Faculty Detailed Ratings</h3>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Faculty Name</th>
+                            <th>Teaching</th>
+                            <th>Content</th>
+                            <th>Communication</th>
+                            <th>Overall Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data Structures & Algorithms</td>
+                            <td>Dr. Rajesh Sharma</td>
+                            <td>4.8</td>
+                            <td>4.6</td>
+                            <td>4.7</td>
+                            <td><strong>4.7 / 5.0</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Database Management Systems</td>
+                            <td>Prof. Priya Verma</td>
+                            <td>4.5</td>
+                            <td>4.4</td>
+                            <td>4.6</td>
+                            <td><strong>4.5 / 5.0</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Web Development Fundamentals</td>
+                            <td>Dr. Amit Patel</td>
+                            <td>4.9</td>
+                            <td>4.8</td>
+                            <td>4.9</td>
+                            <td><strong>4.9 / 5.0</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Page Footer -->
+    <footer class="main-footer">
+        <p>&copy; 2026 Student Feedback System. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
